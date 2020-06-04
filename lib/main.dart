@@ -37,7 +37,7 @@ class LoChatApp extends StatelessWidget {
                         ),
                       ),
                     ),
-                    new Text( // The app's title. Make it based upon user's location.
+                    new Text( // The app's title. TODO: Make it based upon user's location.
                       "Glen Rock, NJ",
                       style: new TextStyle(
                         color: Colors.black,
@@ -50,7 +50,7 @@ class LoChatApp extends StatelessWidget {
                     new Container(
                       child: new Padding(
                         padding: const EdgeInsets.only(right: 20.0),
-                        child: new Icon( // Make this a Stack because we want to add a red circle with a number in it
+                        child: new Icon( // TODO: Make this a Stack because we want to add a red circle with a number in it
                           CustomIcons.chat,
                           size: 27.5,
                           color: Colors.black,
@@ -99,21 +99,73 @@ class LoChatApp extends StatelessWidget {
                   child: new ListView(
                     children: <Widget>[
                       // TODO: Dynamically instantiate comnents here
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
-                      Comment(),
+                      Comment(content: "This is a post"),
+                      Comment(content: "Hey, LoChat is pretty cool!"),
+                      Comment(content: "This is not a sponsored post. lol"),
+                      Comment(content: "Hello World!"),
+                      Comment(content: "Have you guys tried the new bagel \nshop in town?"), // 34 (dependent upon screen width) characters before \n
+                      Comment(content: "I'm gonna tell all of my friends \nabout LoChat!"), 
+                      Comment(content: "Gucci Kikuchi!"),
+                      Comment(content: "Uh"),
+                      Comment(content: "Bruh"),
                     ],
                   ),
                 ),
                 new Row(
+                  mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
-                    // TODO: Create the bottom navigation bar
+                    new ClipOval(
+                      child: new Container(
+                        color: const Color(0xffc9c9c9),
+                        height: 45,
+                        width: 45,
+                        child: new Padding(
+                          padding: EdgeInsets.only(top: 1.5),
+                          child: new Image(
+                            image: AssetImage('assets/images/anon.png'), // TODO: Make this dynamically loaded
+                          ),
+                        ),
+                      ),
+                    ),
+                    new Stack(
+                      children: <Widget>[
+                        new Container(
+                          width: 240,
+                          height: 45,
+                          color: Colors.transparent,
+                          child: new Container(
+                            decoration: new BoxDecoration(
+                              color: const Color(0xffe0e0e0),
+                              borderRadius: BorderRadius.all(Radius.circular(40.0))
+                            ),
+                          ),
+                        ),
+                        new Padding(
+                          padding: EdgeInsets.only(left: 30.0, top: 15.0),
+                          child: new Text(
+                          "What's on your mind?",
+                          style: new TextStyle(
+                              color: const Color(0xff656565),
+                              fontSize: 13.0,
+                              fontFamily: 'Product-Sans',
+                            ),
+                          ),
+                        ),
+                      ],
+                    ),
+                    new ClipOval(
+                      child: new Container(
+                        color: const Color(0xff00c6ff),
+                        height: 45,
+                        width: 45,
+                        child: new Padding(
+                          padding: EdgeInsets.only(top: 1.5),
+                          // child: new Image(
+                            // image: AssetImage('assets/images/anon.png'),
+                          // ),
+                        ),
+                      ),
+                    ),
                   ],
                 ),
               ],

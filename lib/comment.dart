@@ -3,17 +3,28 @@ import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
 
+// custom imports
+import 'screenSize.dart';
+
 class Comment extends StatelessWidget {
+
+
+  // These variables are arguments
+  final String content;
+
+  // Constructor (@required is for a required parameter)
+  Comment({
+    @required this.content,
+  });
+
   @override
   Widget build(BuildContext context) {
 
-  // This is for screen height and width
-  final double width = MediaQuery.of(context).size.width;
-  final double height = MediaQuery.of(context).size.height;
-  final TextStyle commentTS = new TextStyle(color: new Color(0xffe0e0e0), decoration: TextDecoration.none, fontWeight: FontWeight.bold,);
+    // This is the TextStyle for the reply, posted date, and sponspored text
+    final TextStyle commentTS = new TextStyle(color: new Color(0xffe0e0e0), decoration: TextDecoration.none, fontFamily: 'Product-Sans', fontWeight: FontWeight.bold, fontSize: 13.0,);
 
     return Padding(
-      padding: EdgeInsets.only(bottom: 70.0),
+      padding: EdgeInsets.only(bottom: 30.0),
       child: new Column(
         mainAxisAlignment: MainAxisAlignment.spaceAround,
         children: <Widget> [
@@ -40,16 +51,31 @@ class Comment extends StatelessWidget {
                   ),
                 ),
               ),
-              new Container( // TODO: Make this a stack with text in front
-                width: width * 0.73,
-                height: 85,
-                color: Colors.transparent,
-                child: new Container(
-                  decoration: new BoxDecoration(
-                    color: const Color(0xffe0e0e0),
-                    borderRadius: BorderRadius.all(Radius.circular(40.0))
+              new Stack(
+                children: <Widget>[
+                  new Container(
+                    width: screenWidth(context) * 0.73,
+                    height: 85,
+                    color: Colors.transparent,
+                    child: new Container(
+                      decoration: new BoxDecoration(
+                        color: const Color(0xffe0e0e0),
+                        borderRadius: BorderRadius.all(Radius.circular(40.0))
+                      ),
+                    ),
                   ),
-                ),
+                  new Padding(
+                    padding: EdgeInsets.only(left: 30.0, top: 15.0),
+                    child: new Text(
+                    content,
+                    style: new TextStyle(
+                        color: Colors.black,
+                        fontSize: 13.0,
+                        fontFamily: 'Product-Sans',
+                      ),
+                    ),
+                  ),
+                ],
               ),
               new Padding(
                 padding: EdgeInsets.only(left: 5.0, right: 5.0),
@@ -60,6 +86,7 @@ class Comment extends StatelessWidget {
                       image: AssetImage('assets/images/upvote.png'), // 0xfff75422 is upvote color
                       height: 25,
                       width: 25,
+                      color: Color(0xffe0e0e0),
                     ),
                     new Text(
                       "0",
