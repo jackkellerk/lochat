@@ -2,12 +2,9 @@ import 'package:flutter/cupertino.dart';
 import 'dart:ui';
 import 'package:flutter/material.dart';
 import 'dart:math' as math;
-
-// custom imports
-import 'screenSize.dart';
+import 'sizeConfig.dart';
 
 class Comment extends StatelessWidget {
-
 
   // These variables are arguments
   final String content;
@@ -26,14 +23,11 @@ class Comment extends StatelessWidget {
     return Padding(
       padding: EdgeInsets.only(bottom: 30.0),
       child: new Column(
-        mainAxisAlignment: MainAxisAlignment.spaceAround,
+        mainAxisAlignment: MainAxisAlignment.start,
         children: <Widget> [
-          new Padding(
-            padding: EdgeInsets.only(bottom: 5.0),
-            child: new Text(
-              "Sponsored",
-              style: commentTS
-            ),
+          new Text(
+            "Sponsored",
+            style: commentTS
           ),
           new Row(
             mainAxisAlignment: MainAxisAlignment.spaceEvenly,
@@ -41,8 +35,8 @@ class Comment extends StatelessWidget {
               new ClipOval(
                 child: new Container(
                   color: const Color(0xffc9c9c9),
-                  height: 45,
-                  width: 45,
+                  height: 40,
+                  width: 40,
                   child: new Padding(
                     padding: EdgeInsets.only(top: 1.5),
                     child: new Image(
@@ -54,7 +48,7 @@ class Comment extends StatelessWidget {
               new Stack(
                 children: <Widget>[
                   new Container(
-                    width: screenWidth(context) * 0.73,
+                    width: SizeConfig.screenWidth * .7,
                     height: 85,
                     color: Colors.transparent,
                     child: new Container(
@@ -78,21 +72,21 @@ class Comment extends StatelessWidget {
                 ],
               ),
               new Padding(
-                padding: EdgeInsets.only(left: 5.0, right: 5.0),
+                padding: EdgeInsets.only(left: 7.0, right: 7.0),
                 child: new Column(
                   mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                   children: <Widget>[
                     new Image(
                       image: AssetImage('assets/images/upvote.png'), // 0xfff75422 is upvote color
-                      height: 25,
-                      width: 25,
+                      height: 30,
+                      width: 30,
                       color: Color(0xffe0e0e0),
                     ),
                     new Text(
                       "0",
                       style: new TextStyle(
                         color: const Color(0xffe0e0e0),
-                        fontSize: 30.0,
+                        fontSize: 32.5,
                         fontWeight: FontWeight.bold,
                         fontFamily: 'Product-Sans',
                         decoration: TextDecoration.none,
@@ -102,8 +96,8 @@ class Comment extends StatelessWidget {
                       angle: math.pi,
                       child: new Image(
                         image: AssetImage('assets/images/upvote.png'), // 0xfff75422 is upvote color
-                        height: 25,
-                        width: 25,
+                        height: 30,
+                        width: 30,
                       ),
                     ),
                   ],
@@ -112,18 +106,18 @@ class Comment extends StatelessWidget {
             ],
           ),
           new Padding(
-            padding: EdgeInsets.only(top: 5.0),
+            padding: EdgeInsets.only(top: 0),
             child: new Row(
               children: <Widget>[
                 new Padding(
-                  padding: EdgeInsets.only(left: 85.0),
+                  padding: EdgeInsets.only(left: SizeConfig.screenWidth * .21),
                   child: new Text(
                     "Just now!",
                     style: commentTS
                   ),
                 ),
                 new Padding(
-                  padding: EdgeInsets.only(left: 85.0),
+                  padding: EdgeInsets.only(left: SizeConfig.screenWidth * .26),
                   child: new Text(
                     "0 replies",
                     style: commentTS

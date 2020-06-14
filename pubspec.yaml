@@ -43,6 +43,11 @@ flutter:
   assets:
     - assets/images/anon.png
     - assets/images/upvote.png
+    - assets/images/send.png
+    - assets/images/anon_icon.png
+    - assets/images/globe_icon.png
+    - assets/images/group_icon.png
+    - assets/images/location_icon.png
 
   # To add assets to your application, add an assets section, like this:
   # assets:
