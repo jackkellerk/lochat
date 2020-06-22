@@ -93,6 +93,7 @@ class HomeScreen extends StatelessWidget {
             ),
             new Expanded(
               child: new ListView(
+                reverse: true,
                 children: <Widget>[
                   // TODO: Dynamically instantiate comnents here
                   Comment(content: "This is a post"),
@@ -108,7 +109,7 @@ class HomeScreen extends StatelessWidget {
               ),
             ),
             new Padding(
-              padding: EdgeInsets.only(top: 2.5),
+              padding: EdgeInsets.only(top: 2.5, bottom: 2.5),
               child: new Row(
                 mainAxisAlignment: MainAxisAlignment.spaceEvenly,
                 children: <Widget>[
@@ -164,41 +165,6 @@ class HomeScreen extends StatelessWidget {
                         color: Color(0xffffffff),
                       ),
                     ),
-                  ),
-                ],
-              ),
-            ),
-            new Divider(
-              thickness: 1.5,
-            ),
-            new Padding(
-              padding: EdgeInsets.only(bottom: 5.0),
-              child: new Row(
-                mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-                children: <Widget>[
-                  new Image(
-                    image: AssetImage('assets/images/location_icon.png'),
-                    height: 32.5,
-                    width: 32.5,
-                    color: Color(0xff656565),
-                  ),
-                  new Image(
-                    image: AssetImage('assets/images/globe_icon.png'),
-                    height: 32.5,
-                    width: 32.5,
-                    color: Color(0xffe0e0e0),
-                  ),
-                  new Image(
-                    image: AssetImage('assets/images/group_icon.png'),
-                    height: 32.5,
-                    width: 32.5,
-                    color: Color(0xffe0e0e0),
-                  ),
-                  new Image(
-                    image: AssetImage('assets/images/anon_icon.png'),
-                    height: 32.5,
-                    width: 32.5,
-                    color: Color(0xffe0e0e0),
                   ),
                 ],
               ),
